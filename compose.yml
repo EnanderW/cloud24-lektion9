@@ -1,0 +1,12 @@
+services:
+  my_program:
+    image: my-test-image
+    environment:
+      FIRST: Ironman
+      SECOND_FILE: /run/secrets/second_secret
+    secrets:
+      - second_secret
+
+secrets:
+  second_secret:
+    file: second.txt

@@ -1,0 +1,16 @@
+services:
+  my_postgres_db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    secrets:
+      - postgres_password
+  my_mongo_db:
+    image: mongo
+
+secrets:
+  postgres_password:
+    file: postgres_password.txt
